@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model WareHouse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Depo Ekle</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <h3 class="text-bg-primary">Depo Ekle</h3>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <form asp-controller="WareHouse" asp-action="AddWareHouse" method="post">
+                                <div class="form-group">
+                                    <label for="wareHouseName">Depo Adı</label>
+                                    <input asp-for="wareHouseName" type="text" name="wareHouseName" required placeholder="Depo Adı" id="wareHouseName" class="form-control" />
+                                </div>
+                                <div class="form-group text-right mb-0">
+                                    <button class="btn btn-primary " type="submit">
+                                        Yeni Depo Ekle
+                                    </button>
+
+                                </div>
+
+                            </form>
+                            <a asp-controller="WareHouse" asp-action="Index" class="btn btn-primary"><b class="text-bg-warning"> Depo Listesine Geri Dön</b></a>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <a asp-controller="Inventory" asp-action="Index" class="btn btn-success"><b class="text-bg-secondary"> Envarter Listesine Git</b></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

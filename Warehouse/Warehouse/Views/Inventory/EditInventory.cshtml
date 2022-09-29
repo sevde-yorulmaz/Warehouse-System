@@ -1,0 +1,59 @@
+﻿@model EditInventoryViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Envanter Düzenle</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h3 class="text-bg-primary">Envanter Düzenleme</h3>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <form class="form-group" asp-controller="Inventory" asp-action="EditInventory" method="post">
+                                <input type="hidden" asp-for="Inventory.Id" />
+                                <div class="form-group">
+                                    <select asp-for="Inventory.WarehouseId">
+                                        @foreach (var item in Model.warehouses)
+                                        {
+                                            <option value="@item.Id">@item.wareHouseName</option>
+
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Inventory.WarehouseId"></span>
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="inventoryName">Envanter Adı</label>
+                                    <input asp-for="Inventory.inventoryName" type="text" name="inventoryName" required placeholder="Envanter Adı" class="form-control" id="inventoryName">
+                                </div>
+
+
+                                <div class="form-group text-right mb-0">
+                                    <button class="btn btn-danger" type="submit">Anket Düzenle</button>
+
+                                </div>
+                            </form>
+
+                        </div>
+                        <a asp-controller="Inventory" asp-action="Index" class="btn btn-secondary"><b class="text-black"></b>Envanter Listesine Geri Dön</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.WareHouse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Depo Düzenle</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h3 class="text-bg-primary">Depo Düzenleme</h3>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <form class="form-group" asp-controller="WareHouse" asp-action="EditWareHouse" method="post">
+                                <input type="hidden" asp-for="@Model.Id"/>
+                                <div class="form-group">
+                                    <label asp-for="wareHouseName">Depo Adı</label>
+                                    <input asp-for="@Model.wareHouseName" type="text" name="wareHouseName" required placeholder="Depo Adı" class="form-control" id="wareHouseName">
+                                </div>
+
+
+                                <div class="form-group text-right mb-0">
+                                    <input type="submit" class="btn btn-success " />
+
+                                </div>
+                            </form>
+
+                        </div>
+                        <a asp-controller="WareHouse" asp-action="Index" class="btn btn-secondary"><b class="text-black"></b>Depo Listesine Geri Dön</a>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>

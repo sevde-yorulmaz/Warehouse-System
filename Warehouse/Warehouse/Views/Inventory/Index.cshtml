@@ -1,0 +1,63 @@
+﻿@model GetInventory
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Envanter Listesi</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <h3 class="text-bg-primary">Envanter Listesi</h3>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Envanter Adı</th>
+                                    <th>Depo Adı</th>
+                                    <th>Durum</th>
+                                    <th>Düzenle</th>
+                                    <th>Sil</th>
+                                </tr>
+
+                                @foreach (var item in Model.ınventories)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.inventoryName</td>
+                                        <td>@item.WarehouseId</td>
+                                        <td>@item.Status</td>
+                                        <td><a href="/Inventory/EditInventory/@item.Id" class="btn btn-success"><b class="text-bg-warning">Düzenle</b></a></td>
+                                        <td><a href="/Inventory/DeleteInventory/@item.Id" class="btn btn-danger"><b class="text-bg-warning">Sil</b></a></td>
+                                    </tr>
+                                }
+                            </table>
+                            <a asp-controller="Inventory" asp-action="AddInventory" class="btn btn-primary"><b class="text-bg-warning">Yeni Envanter Ekle</b></a>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+                <a asp-controller="WareHouse" asp-action="Index" class="btn btn-primary"><b class="text-bg-warning"> Depo Listesine Git</b></a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
